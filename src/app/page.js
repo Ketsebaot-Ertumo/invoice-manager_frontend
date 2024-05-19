@@ -10,7 +10,6 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
 import { userSignUpAction } from "../redux/actions/userAction";
-import Navbar from "../components/Navbar";
 import { Avatar, Box, CircularProgress, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Link from 'next/link';
@@ -64,7 +63,6 @@ export default function Signup() {
 
   return (
     <>
-      <Navbar />
       <Box className='bg-gray-200 h-screen flex' sx={{ alignItems: "center", justifyContent: "center" }}>
         <Box onSubmit={formik.handleSubmit} component="form" className="form_style boarder-style">
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%"}} className="p-5 bg-white rounded">

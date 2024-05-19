@@ -36,7 +36,7 @@ export const userSignUpAction = (user) => async(dispatch) =>{
 export const confirmEmail = (confirmationCode) => async (dispatch) => {
     dispatch({type: CONFIRM_REQUEST});
     try{
-        const response= await axios.post(`${process.env.URL}/auth/confirm`, {confirmationCode});
+        const response= await axios.post(`${URL}/auth/confirm`, {confirmationCode});
         dispatch({
             type: CONFIRM_SUCCESS, 
             payload: response.data
@@ -54,7 +54,7 @@ export const confirmEmail = (confirmationCode) => async (dispatch) => {
 export const userSignInAction = (user) => async(dispatch) =>{
     dispatch({type: USER_SIGNIN_REQUEST});
     try{
-        const {data} = await  axios.post(`${process.env.URL}/auth/signin`, user);
+        const {data} = await  axios.post(`${URL}/auth/signin`, user);
         // localStorage.setItem('userInfo', JSON.stringify(data));
 
         dispatch({
@@ -76,7 +76,7 @@ export const userSignInAction = (user) => async(dispatch) =>{
 export const userLogoutAction = (user) => async(dispatch) =>{
     dispatch({type: USER_LOGOUT_REQUEST});
     try{
-        const {data} = await  axios.get(`${process.env.URL}/auth/logout`);
+        const {data} = await  axios.get(`${URL}/auth/logout`);
         dispatch({
             type: USER_LOGOUT_SUCCESS,
             payload: data
@@ -96,7 +96,7 @@ export const userLogoutAction = (user) => async(dispatch) =>{
 export const forgot = (user) => async (dispatch) => {
     dispatch({type: PASSWORD_FORGOT_REQUEST});
     try{
-        const response= await axios.post(`${process.env.URL}/auth/forgot`, user);
+        const response= await axios.post(`${URL}/auth/forgot`, user);
         dispatch({
             type: PASSWORD_FORGOT_SUCCESS, 
             payload: response.data
@@ -117,7 +117,7 @@ export const forgot = (user) => async (dispatch) => {
 export const reset = (user) => async (dispatch) => {
     dispatch({type: PASSWORD_RESET_REQUEST});
     try{
-        const response= await axios.post(`${process.env.URL}/auth/reset`, user);
+        const response= await axios.post(`${URL}/auth/reset`, user);
         dispatch({
             type: PASSWORD_RESET_SUCCESS, 
             payload: response.data

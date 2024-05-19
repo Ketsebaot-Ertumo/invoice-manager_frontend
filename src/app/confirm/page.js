@@ -8,7 +8,6 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
 import { confirmEmail } from "../../redux/actions/userAction";
-import Navbar from "../../components/Navbar";
 import { Box, CircularProgress } from "@mui/material";
 import Link from "next/link";
 
@@ -50,7 +49,7 @@ const Confirmation = () => {
 
   return (
     <>
-      <Navbar />
+
       <Box className='bg-gray-200 h-screen flex text-black' sx={{ alignItems: "center", justifyContent: "center", }}>
         <Box onSubmit={formik.handleSubmit} component="form" className="form_style boarder-style" >
           <Box className='flex bg-white p-5 rounded' sx={{ flexDirection: "column", alignItems: "center", width: "100%" }}>

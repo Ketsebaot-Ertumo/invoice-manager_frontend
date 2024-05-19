@@ -8,7 +8,6 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
 import { reset } from "../../../redux/actions/userAction";
-import Navbar from "../../../components/Navbar";
 import { Box, CircularProgress, IconButton, InputAdornment, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
@@ -59,7 +58,6 @@ const Reset = () => {
 
   return (
     <>
-      <Navbar />
       <Box
         className="bg-gray-200 h-screen flex text-black"
         sx={{ alignItems: "center", justifyContent: "center", bgcolor: "primary.white" }}

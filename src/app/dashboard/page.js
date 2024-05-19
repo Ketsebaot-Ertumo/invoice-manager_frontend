@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+"use client";
+
+import { useEffect, useState } from 'react';
 import { Box, Button, IconButton, Paper, Typography, gridClasses } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import moment from 'moment/moment';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Loader from '../components/Loader';
+import Link from 'next/link';
 
 
 
@@ -15,7 +16,7 @@ export default function Dashboard() {
     
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(false);
-    const url = process.env.url;
+    const url = process.env.NEXT_PUBLIC_API_URL;
     
     // Create a global Axios instance with the desired default configuration
     axios.defaults.withCredentials = true;
@@ -66,6 +67,21 @@ export default function Dashboard() {
             editable: true
         },
         {
+            field: 'item_nmber',
+            headerName: 'Item Number',
+            width: 150
+        },
+        {
+            field: 'total',
+            headerName: 'Total',
+            width: 150
+        },
+        {
+            field: 'exp_date',
+            headerName: 'Expire Date',
+            width: 150
+        },
+        {
             field: 'client_name',
             headerName: 'Client Name',
             width: 150
@@ -86,21 +102,6 @@ export default function Dashboard() {
             width: 150
         },
         {
-          field: 'item_nmber',
-          headerName: 'Item Number',
-          width: 150
-        },
-        {
-          field: 'total',
-          headerName: 'Total',
-          width: 150
-        },
-        {
-          field: 'exp_date',
-          headerName: 'Expire Date',
-          width: 150
-        },
-        {
           field: 'createdAt',
           headerName: 'Created Date',
           width: 150,
@@ -112,14 +113,17 @@ export default function Dashboard() {
         field: 'Actions',
         width: 100,
         renderCell: (value) => (
-            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '170px'}}>
-                <Link to={`/invoice/edit/${value.row.invoice_number}`}>
+            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100px'}}>
+                <Link href={`/invoice/edit/${value.row.invoice_number}`}>
                     <IconButton aria-label="edit">
                         <EditIcon sx={{color: '#1976d2'}} />
                     </IconButton>
                 </Link>
                 <IconButton aria-label="delete" onClick={(e) => deleteInvoice(e, value.row.invoice_number)}>
-                    <DeleteIcon sx={{color: "red"}} />
+                    <DeleteIcon sx={{color: 'red'}} />
+                </IconButton>
+                <IconButton aria-label="edit">
+                    <EditIcon sx={{color: '#1976d2'}} />
                 </IconButton>
             </Box>  
         )}
@@ -128,14 +132,13 @@ export default function Dashboard() {
 
     return(
         <>
+            <Box className='bg-gray-200 h-screen text-black font-inter pt-10'>
 
-            <Box className='bg-gray-200 h-screen text-black font-inter'>
-
-                <div className='flex justify-between'>
-                    <Typography variant="h4" sx={{color: 'black', pb: 3}}>
+                <div className='flex justify-between p-5 pt-10'>
+                    <Typography variant="h4" sx={{color: 'black',}}>
                         Invoices List
                     </Typography>
-                    <Link to='/invoice/create'>
+                    <Link href='/invoice/create'>
                         <Button className='rounded'>
                             Create Invoice
                         </Button> 
@@ -144,7 +147,7 @@ export default function Dashboard() {
                
                 <Paper sx={{bgcolor:'white'}}>
                     <Box sx={{height: 400, width: '100%'}}>
-                        {loading? <Loader />:(
+                        {/* {loading? <Loader />:( */}
                         <DataGrid getRowId={(row) => row.invoice_number} 
                             sx={{
                                 '& .MuiTablePagination-displayedRow': {
@@ -160,7 +163,7 @@ export default function Dashboard() {
                             checkboxSelection
                             pageSizeOptions={[10,25,50,75,100]}
                             />
-                        )}
+                        {/* )} */}
                     </Box>
                 </Paper>
             </Box>

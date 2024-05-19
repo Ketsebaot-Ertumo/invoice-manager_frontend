@@ -8,9 +8,7 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
 import { forgot } from "../../../redux/actions/userAction";
-import Navbar from "../../../components/Navbar";
-import { Avatar, Box, CircularProgress } from "@mui/material";
-// import Loader from "../components/Loader";
+import { Box, CircularProgress } from "@mui/material";
 
 const validationSchema = yup.object({
   email: yup
@@ -45,7 +43,6 @@ const Forgot = () => {
 
   return (
     <>
-      <Navbar />
       <Box
         className="bg-gray-200 h-screen flex text-black"
         sx={{ alignItems: "center", justifyContent: "center", bgcolor: "primary.white" }}
