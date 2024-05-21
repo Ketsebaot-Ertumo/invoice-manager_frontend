@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { reset } from "../../../redux/actions/userAction";
 import { Box, CircularProgress, IconButton, InputAdornment, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -159,7 +159,7 @@ const Reset = () => {
 
             <div className="pt-5 opacity-70 text-sm">Having issues with your link? Try and add <br />
               <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">PasswordReset@techethio.com</a>{" "}
-              to your email contacts so the link <br /> doesn't end up in your spam.
+              to your email contacts so the link <br /> doesn&apos;t end up in your spam.
             </div>
             <div className="pt-5 pr-12 opacity-70 text-sm">For more support, contact our Customer Support Team at <br />{" "}
               <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">help@gmail.com</a>
