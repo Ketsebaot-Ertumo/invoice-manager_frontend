@@ -84,7 +84,7 @@ const EditUser = () => {
 
     const handleCountryCodeChange = (event) => {
         const selectedCountryCode = event.target.value;
-        setFieldValue('selectedCountryCode', selectedCountryCode);
+        setFieldValue("selectedCountryCode", selectedCountryCode);
     };
       
 
@@ -101,7 +101,7 @@ const EditUser = () => {
             fullName: userData.fullName,
             email: userData.email,
             phone: userData.phone,
-            selectedCountryCode: '+251',
+            selectedCountryCode: "+251",
         },
         validationSchema: validationSchema,
         enableReinitialize: true,
@@ -122,7 +122,7 @@ const EditUser = () => {
 
     return (
         <>
-            <div className='px-50 py-10 md:px-[600px] md:py-20' sx={{ bgcolor: "white"}}>
+            <div className="px-50 py-10 md:px-[500px] md:py-20" sx={{ bgcolor: "white"}}>
                 <div className="flex justify-center"><Avatar src="" alt=""/></div>
                 <Typography className="text-center pt-5" variant="h5" sx={{ pb: 4 }}>Edit your Profile</Typography>
                 <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>

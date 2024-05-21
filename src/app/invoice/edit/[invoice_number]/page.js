@@ -92,7 +92,7 @@ const Edit = () => {
         };
 
         fetchInvoiceData();
-    }, [invoice_number, URL]);
+    }, [invoice_number]);
       
 
     const {

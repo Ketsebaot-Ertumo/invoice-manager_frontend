@@ -265,7 +265,7 @@ const deleteInvoices = async (e, selectedInvoices) => {
                         <Edit sx={{color: '#1976d2'}} />
                     </IconButton>
                 </Link>
-                <IconButton aria-label="delete" onClick={(e) => deleteInvoices(e, value.row.invoice_number)}>
+                <IconButton aria-label="delete" onClick={(e) => deleteInvoice(e, value.row.invoice_number)}>
                     <Delete sx={{color: 'red'}} />
                 </IconButton>
                 <IconButton aria-label="edit">
