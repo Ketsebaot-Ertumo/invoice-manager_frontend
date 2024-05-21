@@ -125,13 +125,13 @@ const LogIn = () => {
             <Button disabled={loading} fullWidth variant="contained" type="submit">{loading ? <CircularProgress /> : "Log In"}</Button>
             <div className="flex justify-between gap-10 pt-2 text-blue-500">
               <Link href="/password/forgot" style={{ textDecoration: "none" }}><p>Forgot Password?</p></Link>
-              <Link href="/signup" style={{ textDecoration: "none" }} className="text-center">Don&apos;t have an Account?</Link>
+              <Link href="/" style={{ textDecoration: "none" }} className="text-center">Don&apos;t have an Account?</Link>
             </div>
           </Box>
         </Box>
       </Box>
 
-      <div className="text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-inter sm:mr-20 py-5 sm:py-10">
+      <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
         <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
       </div>
     </>
