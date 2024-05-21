@@ -225,13 +225,17 @@ const Create = () => {
                     elevation={0}
                     sx={{mt:3, p:1,mb:2, boarderRadius: "25px",}}
                     disabled={loading}
-                    className="bg-green-600 hover:bg-green-500"
                  >
                     {loading ? <CircularProgress /> : 'Create Invoice'}
                  </Button>
               </Box>
           
           </div>
+
+          <div className="text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:mr-20 py-5 sm:py-10">
+              <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
+          </div>
+          
         </>
     );
        

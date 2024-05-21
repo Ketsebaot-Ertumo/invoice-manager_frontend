@@ -78,7 +78,7 @@ const Forgot = () => {
             />
 
             <Button
-              className="font-normal bg-green-600 hover:bg-green-500"
+              className="font-normal"
               disabled={loading}
               fullWidth
               variant="contained"
@@ -88,11 +88,11 @@ const Forgot = () => {
             </Button>
 
             <div className="pt-5 opacity-70 text-sm">Having issues with your link? Try and add <br />
-              <a href="mailto:ertumoketsebaot@gmail.com" className="text-green-600">PasswordReset@techethio.com</a>{" "}
+              <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">PasswordReset@techethio.com</a>{" "}
               to your email contacts so the link <br /> doesn't end up in your spam.
             </div>
             <div className="pt-5 pr-12 opacity-70 text-sm">For more support, contact our Customer Support Team at <br />{" "}
-              <a href="mailto:ertumoketsebaot@gmail.com" className="text-green-600">help@gmail.com</a>
+              <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">help@gmail.com</a>
             </div>
 
           </Box>

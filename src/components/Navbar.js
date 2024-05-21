@@ -5,20 +5,22 @@ import MenuNav from './Menu';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
 import Link from 'next/link';
-import Sidebar from "./Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+
 
 function Navbar() {
-  const [activeMenu, setActiveMenu] = useState(null);
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showIconOnly, setShowIconOnly] = useState(false);
- 
-  const handleMenuIconClick = (e) => {
-      setShowIconOnly(!showIconOnly);
-  };
+  const { userInfo } = useSelector(state => state.signIn);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
-  const handleMenuHover = (menu) => {
-    setActiveMenu(menu);
-  };
+  //log out
+  const logOut = () => {
+      dispatch(userLogoutAction());
+      router.push('/signin');
+  }
 
   const handleNavMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -50,12 +52,19 @@ function Navbar() {
                   <Close className="black" />
                 </IconButton>
               </div>
-
-              <Link href="/signin">
-                <div className="cursor-pointer text-black hover:text-gray-500">
-                    LogIn
-                </div>
-              </Link>
+              <div>
+                {!userInfo || userInfo?.token === null ? (
+                  <Link href="/signin">
+                    <div className="cursor-pointer hover:text-gray-500">
+                      Login
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="cursor-pointer hover:text-gray-500" onClick={logOut}>
+                    Logout
+                  </div>
+                )}
+              </div>
               <Link href="/signup">
                 <div className="cursor-pointer text-black hover:text-gray-500">
                     Signup

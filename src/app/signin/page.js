@@ -59,7 +59,7 @@ const LogIn = () => {
       <Box className='bg-gray-200 h-screen flex' sx={{ alignItems: "center", justifyContent: "center" }}>
         <Box component="form" onSubmit={formik.handleSubmit} className="form_style boarder-style">
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%",}} className="p-5 bg-white rounded">
-            <Avatar sx={{ m: 1, bgcolor: "#4CAF50", mb: 3 }}>
+            <Avatar sx={{ m: 1, bgcolor: "primary.main", mb: 3 }}>
               <LockClockOutlined />
             </Avatar>
             <TextField
@@ -122,8 +122,8 @@ const LogIn = () => {
               }}
             />
 
-            <Button disabled={loading} fullWidth variant="contained" type="submit" className="bg-green-600 hover:bg-green-500">{loading ? <CircularProgress /> : "Log In"}</Button>
-            <div className="flex justify-between gap-10 pt-2 text-green-400">
+            <Button disabled={loading} fullWidth variant="contained" type="submit">{loading ? <CircularProgress /> : "Log In"}</Button>
+            <div className="flex justify-between gap-10 pt-2 text-blue-500">
               <Link href='/password/forgot' style={{ textDecoration: 'none' }}><p>Forgot Password?</p></Link>
               <Link href='/signup' style={{ textDecoration: 'none' }} className="text-center">Don't have an Account?</Link>
             </div>

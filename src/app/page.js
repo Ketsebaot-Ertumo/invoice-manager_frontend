@@ -66,7 +66,7 @@ export default function Signup() {
       <Box className='bg-gray-200 h-screen flex' sx={{ alignItems: "center", justifyContent: "center" }}>
         <Box onSubmit={formik.handleSubmit} component="form" className="form_style boarder-style">
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%"}} className="p-5 bg-white rounded">
-            <Avatar sx={{ m: 1, bgcolor: "#4CAF50", mb: 3 }}>
+            <Avatar sx={{ m: 1, bgcolor: "primary.main", mb: 3 }}>
               <LockClockOutlined />
             </Avatar>
             <TextField
@@ -138,10 +138,10 @@ export default function Signup() {
               error={formik.touched.fullName && Boolean(formik.errors.fullName)}
               helperText={formik.touched.fullName && formik.errors.fullName}
             />
-            <Button disabled={loading} fullWidth variant="contained" type="submit" className='bg-green-600 hover:bg-green-500'>
+            <Button disabled={loading} fullWidth variant="contained" type="submit">
               {loading ? <CircularProgress /> : 'Sign Up'}
             </Button>
-            <div className="flex justify-between gap-10 pt-2 text-green-600">
+            <div className="flex justify-between gap-10 pt-2 text-blue-500">
               <Link href='/password/forgot'><p>Forgot Password?</p></Link>
               <Link href='/signin' style={{ textDecoration: 'none' }} className="text-center">Already have an Account?</Link>
             </div>

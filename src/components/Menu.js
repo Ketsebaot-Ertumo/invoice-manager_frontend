@@ -1,81 +1,40 @@
+import { userLogoutAction } from '@/redux/actions/userAction';
 import { Email, Instagram, LinkedIn, Twitter, YouTube } from '@mui/icons-material';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation"; 
 
 const Menu = () => {
-  const [activeMenu, setActiveMenu] = useState(null);
+
+  const { userInfo } = useSelector(state => state.signIn);
+  const dispatch = useDispatch();
   const router = useRouter();
+  console.log('userInfo',userInfo)
 
-  useEffect(() => {
-    // Update active menu based on the current page
-    const path = router.pathname;
-    if (path && path.startsWith('/about')) {
-      setActiveMenu('about');
-    } else if (path && path.startsWith('/services')) {
-      setActiveMenu('service');
-    } else if (path && path.startsWith('/portfolio')) {
-      setActiveMenu('portfolio');
-    } else if (path && path.startsWith('/contact')) {
-      setActiveMenu('contact');
-    } else {
-      setActiveMenu(null);
-    }
-  }, [router.pathname]);
-
-  const handleMenuHover = (menu) => {
-    setActiveMenu(menu);
-  };
+  //log out
+  const logOut = () => {
+      dispatch(userLogoutAction());
+      router.push('/signin');
+  }
 
   return (
     <div>
       <div className="mt-3 cursor-pointer text-white">
         <nav className="space-x-8 hidden lg:flex text-center text-base font-inter text-md">
-          {/* <div
-            onMouseEnter={() => handleMenuHover('aboutNav')}
-            onMouseLeave={() => handleMenuHover(null)}
-          >
-            <Link href="/about">
-              <p
-                className={`${
-                  activeMenu === 'aboutNav' || activeMenu === 'about'
-                    ? 'text-gray-500'
-                    : 'text-white'
-                } pb-3`}
-              >
-                About
-              </p>
-            </Link>
-            {activeMenu === 'aboutNav' && (
-              <div className="absolute bg-white shadow text-left p-4 rounded-lg">
-                <ul>
-                  <Link href="/about#about">
-                    <li className="hover:text-gray-500">
-                      <p>About Us</p>
-                    </li>
-                  </Link>
-                  <Link href="/about#approach">
-                    <li className="hover:text-gray-500 py-5">
-                      <p>Our Approach</p>
-                    </li>
-                  </Link>
-                  <Link href="/about#team">
-                    <li className="hover:text-gray-500">
-                      <p>Our Team</p>
-                    </li>
-                  </Link>
-                </ul>
+  
+          <div className="flex gap-10 cursor-pointer text-white">
+            {!userInfo || userInfo?.token === null ? (
+              <Link href="/signin">
+                <div className="cursor-pointer hover:text-gray-500">
+                  Login
+                </div>
+              </Link>
+            ) : (
+              <div className="cursor-pointer hover:text-gray-500" onClick={logOut}>
+                Logout
               </div>
             )}
-          </div> */}
-          
 
-          <div className="flex gap-10 cursor-pointer text-white">
-            <Link href="/signin">
-                <div className="cursor-pointer hover:text-gray-500">
-                    LogIn
-                </div>
-            </Link>
             <a href="https://www.linkedin.com/in/lik-architects?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
               <div className="cursor-pointer hover:text-gray-500">
                 <LinkedIn />

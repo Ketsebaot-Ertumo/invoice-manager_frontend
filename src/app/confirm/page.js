@@ -79,19 +79,19 @@ const Confirmation = () => {
               helperText={formik.touched.confirmationCode && formik.errors.confirmationCode}
             />
 
-            <Button className="font-normal bg-green-600 hover:bg-green-500" disabled={loading} fullWidth variant="contained" type="submit">{loading ? <CircularProgress /> : "Confirm Email"}</Button>
+            <Button className="font-normal" disabled={loading} fullWidth variant="contained" type="submit">{loading ? <CircularProgress /> : "Confirm Email"}</Button>
 
-            <div className="flex justify-between gap-10 sm:gap-20 pt-2 text-green-600">
+            <div className="flex justify-between gap-10 sm:gap-20 pt-2 text-blue-500">
               <Link href='/password/register'><p>New Account?</p></Link>
               <Link href='/login' style={{ textDecoration: 'none' }} className="text-center">Already have an Account?</Link>
             </div>
 
             <div className="pt-5 opacity-70 text-sm">Having issues with your link? Try and add <br />
-              <a href="mailto:ertumoketsebaot@gmail.com" className="text-green-600">PasswordReset@techethio.com</a>{" "}
+              <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">PasswordReset@techethio.com</a>
               to your email contacts so the link <br /> doesn't end up in your spam.
             </div>
             <div className="pt-5 pr-12 opacity-70 text-sm">For more support, contact our Customer Support Team at <br />{" "}
-              <a href="mailto:ertumoketsebaot@gmail.com" className="text-green-600">help@gmail.com</a>
+              <a href="mailto:ertumoketsebaot@gmail.com" className="text-blue-500">help@gmail.com</a>
             </div>
 
           </Box>

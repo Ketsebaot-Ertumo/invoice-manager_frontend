@@ -6,10 +6,7 @@ import { useFormik } from "formik";
 import * as yup from 'yup';
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-// import { useNavigate, useParams } from "react-router-dom";
-
-
+import { useParams, useRouter } from "next/navigation";
 
 
 const validationSchema = yup.object({
@@ -27,20 +24,18 @@ const validationSchema = yup.object({
         .required('Name is required!'),
     client_email: yup
         .string('Add a client email!'),
-        // .required('Email is required!'),
     client_phone: yup
         .string('Add a client phone!'),
-        // .required('Phone is required!'),
     client_company: yup
         .string('Add a client company name!')
-        // .required('Company name is required!'),
 });
 
 const Edit = () => {
     
     const [loading, setLoading] = useState(false);
     const router = useRouter();
-    const { invoice_number } = router.query || {};
+    const { invoice_number } = useParams(); // useParams to get the dynamic route parameter
+    const URL = process.env.NEXT_PUBLIC_API_URL;
     const [data, setData] = useState({
         item_number: '',
         total: '',
@@ -50,11 +45,9 @@ const Edit = () => {
         client_phone: '',
         client_company: ''
     });
-    const URL = process.env.NEXT_PUBLIC_API_URL;
 
     // Create a global Axios instance with the desired default configuration
     axios.defaults.withCredentials = true;
-
 
     //update invoice
     const updateInvoice = async (values) => {
@@ -62,10 +55,9 @@ const Edit = () => {
         setLoading(true);
         try{
             const {data}= await axios.put(`${URL}/invoice/edit/${invoice_number}`, values);
-            console.log(data.updatedInvoice)
             if (data.success === true){
                 toast.success('Invoice updated successfully.');
-                navigate('/dashboard')
+                router.push('/dashboard')
             }else{
                 toast.error(data.message);
                 console.log(data.message)
@@ -78,19 +70,19 @@ const Edit = () => {
         }
     }
 
-    // Fetch invoice date
+    // Fetch invoice data
     useEffect(() => {
         const fetchInvoiceData = async () => {
             try {
                 const { data } = await axios.get(`${URL}/invoice/show/${invoice_number}`);
-                setUserData({
+                setData({
                     item_number: data.invoice.item_number,
                     total: data.invoice.total,
                     exp_date: data.invoice.exp_date,
                     client_name: data.invoice.client_name,
                     client_email: data.invoice.client_email,
                     client_phone: data.invoice.client_phone,
-                    client_company: data.invoice.client_company
+                    client_company: data.invoice.client_company,
                 });
                 console.log('data',data.invoice)
             } catch (error) {
@@ -100,7 +92,7 @@ const Edit = () => {
         };
 
         fetchInvoiceData();
-    }, [invoice_number]);
+    }, [invoice_number, URL]);
       
 
     const {
@@ -269,9 +261,9 @@ const Edit = () => {
           </div>
 
 
-            <div className="text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:mr-20 py-5 sm:py-10">
-                <p>© <span>{new Date().getFullYear()}</span> TechEthio IT Solutions PLC. All rights reserved.</p>
-            </div>
+          <div className="text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:mr-20 py-5 sm:py-10">
+              <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
+          </div>
         </>
     );
            
