@@ -72,11 +72,11 @@ const Profile = () =>{
                     </div>
                     
                     <div>
-                        <div className='p-5 text-xl'><b>id: </b>{id}</div>
-                        <div className='p-5 text-xl'><b>Full Name: </b> {fullName}</div>
-                        <div className='p-5 text-xl'><b>Eamil: </b> {email}</div>
-                        <div className='p-5 text-xl'><b>Phone: </b> {phone}</div>
-                        <div className='p-5 text-xl'><b>Role: </b> {role}</div>
+                        <div className='p-5 text-xl'>id: {id}</div>
+                        <div className='p-5 text-xl'>Full Name: {fullName}</div>
+                        <div className='p-5 text-xl'>Email: {email}</div>
+                        <div className='p-5 text-xl'>Phone: {phone}</div>
+                        <div className='p-5 text-xl'>Role: {role}</div>
                     </div>
                   </div>
 
