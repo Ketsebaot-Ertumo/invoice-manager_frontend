@@ -65,11 +65,11 @@ function Navbar() {
                   </div>
                 )}
               </div>
-              <Link href="/signup">
-                <div className="cursor-pointer text-black hover:text-gray-500 pt-5">
+                <Link href="/signup">
+                  <div className="cursor-pointer text-black hover:text-gray-500 pt-10">
                     Signup
-                </div>
-              </Link>
+                  </div>
+                </Link>
             </div>
           )}
         </div>
