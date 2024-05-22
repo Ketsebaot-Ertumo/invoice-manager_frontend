@@ -66,7 +66,7 @@ function Navbar() {
                 )}
               </div>
                 <Link href="/signup">
-                  <div className="cursor-pointer text-black hover:text-gray-500 pt-10">
+                  <div className="cursor-pointer text-black hover:text-gray-500 pt-8">
                     Signup
                   </div>
                 </Link>
