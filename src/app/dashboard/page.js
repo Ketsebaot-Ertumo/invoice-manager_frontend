@@ -67,8 +67,8 @@ function Dashboard() {
 
             selectedInvoices.forEach(invoice => {
                 const invoiceData = [
-                    invoice.invoice_number,
-                    invoice.item_number,
+                    invoice.invoice_number.toString().padStart(8, '0'),
+                    invoice.item_number.toString().padStart(4, '0'),
                     invoice.total,
                     invoice.exp_date,
                     invoice.client_name,
@@ -97,8 +97,8 @@ function Dashboard() {
             
             // Create a worksheet with the selected invoices data
             const worksheetData = selectedInvoices.map(invoice => ({
-                'Invoice Number': invoice.invoice_number,
-                'Item Number': invoice.item_number,
+                'Invoice Number': invoice.invoice_number.toString().padStart(8, '0'),
+                'Item Number': invoice.item_number.toString().padStart(4, '0'),
                 'Total': invoice.total,
                 'Expire Date': invoice.exp_date,
                 'Client Name': invoice.client_name,
@@ -356,7 +356,7 @@ const deleteInvoices = async (e, selectedInvoices) => {
 
                         </Box>
                     </Paper>
-                    
+
                 </div>
             </Box>
         </>
