@@ -25,7 +25,6 @@ const Forgot = () => {
   useEffect(() => {
     if (isAuthenticated) {
         router.push(`/password/reset/${user.resetToken}`);
-        console.log("user", user.resetToken);
     }
   }, [isAuthenticated, user]);
 

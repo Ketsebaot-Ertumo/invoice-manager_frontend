@@ -19,7 +19,7 @@ function Navbar() {
   //log out
   const logOut = () => {
       dispatch(userLogoutAction());
-      router.push('/signin');
+      router.push('/');
   }
 
   const handleNavMenu = () => {
@@ -53,7 +53,7 @@ function Navbar() {
               </div>
               <div>
                 {!userInfo || userInfo?.token === null ? (
-                  <Link href="/signin">
+                  <Link href="/">
                     <div className="cursor-pointer hover:text-gray-500">
                       Login
                     </div>

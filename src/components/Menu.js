@@ -13,7 +13,7 @@ const Menu = () => {
   //log out
   const logOut = () => {
       dispatch(userLogoutAction());
-      router.push('/signin');
+      router.push('/');
   }
 
   return (
@@ -23,7 +23,7 @@ const Menu = () => {
   
           <div className="flex gap-10 cursor-pointer text-white">
             {!userInfo || userInfo?.token === null ? (
-              <Link href="/signin">
+              <Link href="/">
                 <div className="cursor-pointer hover:text-gray-500">
                   Login
                 </div>

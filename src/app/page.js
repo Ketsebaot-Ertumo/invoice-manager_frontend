@@ -1,41 +1,33 @@
-
 "use client";
 
-import { useEffect, useState } from 'react';
-import LockClockOutlined from '@mui/icons-material/LockClockOutlined';
+import React, { useEffect, useState } from "react";
+import LockClockOutlined from "@mui/icons-material/LockClockOutlined";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from 'next/navigation';
-import { userSignUpAction } from "../redux/actions/userAction";
+import { useRouter } from "next/navigation";
+import { userSignInAction } from "../redux/actions/userAction";
 import { Avatar, Box, CircularProgress, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Link from 'next/link';
+import Link from "next/link";
 
 const validationSchema = yup.object({
-  fullName: yup
-    .string('Enter your full name')
-    .max(20, "Name can't exceed 20 characters")
-    .min(4, "Name can't be less than 4 characters")
-    .required("Name is required!"),
   email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required!'),
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required!"),
   password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 chars length')
-    .required('Password is required!'),
+    .string("Enter your password")
+    .min(8, "Password should be of minimum 8 chars length")
+    .required("Password is required!"),
 });
 
-
-export default function Signup() {
-
+const LogIn = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { loading, isAuthenticated, userSignUp } = useSelector(state => state.signUp);
+  const { loading, isAuthenticated, userInfo } = useSelector(state => state.signIn);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => {
@@ -44,42 +36,47 @@ export default function Signup() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push(`/confirm`);
+      if (userInfo.role === "admin") {
+        router.push("/dashboard");
+      }
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, userInfo, router]);
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
-      fullName: ''
+      email: "",
+      password: ""
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
-      dispatch(userSignUpAction(values));
+      dispatch(userSignInAction(values));
       actions.resetForm();
     }
   });
 
   return (
     <>
-      <Box className='bg-gray-200 h-screen flex' sx={{ alignItems: "center", justifyContent: "center" }}>
-        <Box onSubmit={formik.handleSubmit} component="form" className="form_style boarder-style">
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%"}} className="p-5 bg-white rounded">
+      <Box className="bg-gray-200 h-screen flex" sx={{ alignItems: "center", justifyContent: "center" }}>
+        <Box component="form" onSubmit={formik.handleSubmit} className="form_style boarder-style">
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%",}} className="p-5 bg-white rounded">
             <Avatar sx={{ m: 1, bgcolor: "primary.main", mb: 3 }}>
               <LockClockOutlined />
             </Avatar>
             <TextField
               sx={{
                 mb: 3,
-                "& .MuiInputBase-root": { color: 'text.secondary'},
+                "& .MuiInputBase-root": {
+                  color: "text.secondary"
+                },
                 fieldset: { boarderColor: "rgb(231, 215, 240)" }
               }}
               fullWidth
               id="email"
               label="Email"
-              name='email'
-              InputLabelProps={{ shrink: true }}
+              name="email"
+              InputLabelProps={{
+                shrink: true,
+              }}
               placeholder="E-mail"
               value={formik.values.email}
               onChange={formik.handleChange}
@@ -87,18 +84,23 @@ export default function Signup() {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
+
             <TextField
               sx={{
                 mb: 3,
-                "& .MuiInputBase-root": { color: 'text.secondary' },
+                "& .MuiInputBase-root": {
+                  color: "text.secondary"
+                },
                 fieldset: { boarderColor: "rgb(231, 235, 240)" }
               }}
               fullWidth
               id="password"
               name="password"
               label="Password"
-              type={showPassword ? 'text' : 'password'}
-              InputLabelProps={{ shrink: true }}
+              type={showPassword ? "text" : "password"}
+              InputLabelProps={{
+                shrink: true,
+              }}
               placeholder="Password"
               value={formik.values.password}
               onChange={formik.handleChange}
@@ -119,40 +121,21 @@ export default function Signup() {
                 ),
               }}
             />
-            <TextField
-              sx={{
-                mb: 3,
-                "& .MuiInputBase-root": { color: 'text.secondary' },
-                fieldset: { boarderColor: "rgb(231, 235, 240)" }
-              }}
-              fullWidth
-              id="fullName"
-              name="fullName"
-              label='Full Name'
-              type="name"
-              InputLabelProps={{ shrink: true }}
-              placeholder="Full Name"
-              value={formik.values.fullName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-              helperText={formik.touched.fullName && formik.errors.fullName}
-            />
-            <Button disabled={loading} fullWidth variant="contained" type="submit">
-              {loading ? <CircularProgress /> : 'Sign Up'}
-            </Button>
+
+            <Button disabled={loading} fullWidth variant="contained" type="submit">{loading ? <CircularProgress /> : "Log In"}</Button>
             <div className="flex justify-between gap-10 pt-2 text-blue-500">
-              <Link href='/password/forgot'><p>Forgot Password?</p></Link>
-              <Link href='/signin' style={{ textDecoration: 'none' }} className="text-center">Already have an Account?</Link>
+              <Link href="/password/forgot" style={{ textDecoration: "none" }}><p>Forgot Password?</p></Link>
+              <Link href="/signup" style={{ textDecoration: "none" }} className="text-center">Don&apos;t have an Account?</Link>
             </div>
           </Box>
         </Box>
       </Box>
+
       <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
         <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
       </div>
     </>
   );
-}
+};
 
-
+export default LogIn;

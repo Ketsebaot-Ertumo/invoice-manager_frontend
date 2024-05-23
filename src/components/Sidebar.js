@@ -18,7 +18,7 @@ const Sidebar = () => {
     // log out
     const logOut = () => {
         dispatch(userLogoutAction());
-        router.push('/signin');
+        router.push('/');
     }
 
     const handleMenuItemClick = (event) => {

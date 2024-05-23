@@ -211,8 +211,12 @@ const deleteInvoices = async (e, selectedInvoices) => {
             field: 'invoice_number',
             headerName: 'Invoice Number',
             width: 150,
-            editable: true
-        },
+            editable: true,
+            renderCell: (params) => {
+              const invoiceNumber = params.value.toString().padStart(8, '0');
+              return invoiceNumber;
+            }
+        },          
         {
             field: 'item_number',
             headerName: 'Item Number',
