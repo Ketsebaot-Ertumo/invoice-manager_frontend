@@ -13,6 +13,7 @@ import { userSignUpAction } from "../../redux/actions/userAction";
 import { Avatar, Box, CircularProgress, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 const validationSchema = yup.object({
   fullName: yup
@@ -148,9 +149,9 @@ export default function Signup() {
           </Box>
         </Box>
       </Box>
-      <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
-        <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
-      </div>
+      
+      <Footer />
+
     </>
   );
 }

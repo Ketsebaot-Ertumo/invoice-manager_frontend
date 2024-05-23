@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { confirmEmail } from "../../redux/actions/userAction";
 import { Box, CircularProgress } from "@mui/material";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const validationSchema = yup.object({
   confirmationCode: yup
@@ -29,9 +30,9 @@ const Confirmation = () => {
   useEffect(() => {
     if (isAuthenticated) {
       if (userinfo.role === "admin") {
-        router.push("/admin/dashboard");
+        router.push("/dashboard");
       } else {
-        router.push("/user/dashboard");
+        router.push("/dashboard/user");
       }
     }
   }, [isAuthenticated, router, userinfo]);
@@ -98,9 +99,8 @@ const Confirmation = () => {
         </Box>
       </Box>
 
-      <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
-        <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
-      </div>
+      <Footer />
+
     </>
   );
 };

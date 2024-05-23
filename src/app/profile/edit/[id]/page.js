@@ -8,6 +8,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams, useRouter } from "next/navigation";
 import withAuth from "@/utils/withAuth";
+import Footer from "@/components/Footer";
 
 
 
@@ -230,9 +231,8 @@ const EditUser = () => {
           </div>
 
 
-          <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
-                <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
-          </div>
+          <Footer />
+
         </>
     );
            

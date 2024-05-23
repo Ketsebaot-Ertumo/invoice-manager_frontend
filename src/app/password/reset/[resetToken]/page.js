@@ -10,6 +10,7 @@ import {  useParams, useRouter } from "next/navigation";
 import { reset } from "../../../redux/actions/userAction";
 import { Box, CircularProgress, IconButton, InputAdornment, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import Footer from "@/components/Footer";
 
 const validationSchema = yup.object({
   newPassword: yup
@@ -169,9 +170,7 @@ const Reset = () => {
         </Box>
       </Box>
 
-      <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
-        <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
-      </div>
+      <Footer />
 
     </>
   );
