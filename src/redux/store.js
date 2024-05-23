@@ -19,7 +19,7 @@ const getTokenFromCookie = () => {
   if (typeof window !== 'undefined') {
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
-    console.log('cookies', cookies)
+   // console.log('cookies', cookies)
     const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
 
     if (tokenCookie) {
@@ -31,7 +31,7 @@ const getTokenFromCookie = () => {
 };
 
 const token = getTokenFromCookie()
-console.log('token:', token)
+//console.log('token:', token)
 
 // const decodedToken = jwtDecode(token);
 const decodedToken = token ? jwtDecode(token) : null;

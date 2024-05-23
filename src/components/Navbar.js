@@ -35,7 +35,7 @@ function Navbar() {
             className="rounded-full w-6 h-6 sm:w-10 sm:h-10"
             alt="logo"
         />
-          <p className="hidden sm:flex">Lepton Games</p>
+          <p className="hidden sm:flex text-white">Lepton Games</p>
         </div>
       </Link>
 
@@ -43,7 +43,7 @@ function Navbar() {
 
       <div className="lg:hidden">
         <div className="pr-8" onClick={handleNavMenu}>
-          <Menu className="lg:mb-3" />
+          <Menu className="lg:mb-3 text-white" />
 
           {isMenuOpen && (
             <div className="absolute bg-white shadow text-left rounded-lg p-3 h-screen ml-[-90px] w-full top-0">
@@ -65,11 +65,11 @@ function Navbar() {
                   </div>
                 )}
               </div>
-              <Link href="/signup">
-                <div className="cursor-pointer text-black hover:text-gray-500">
+                <Link href="/signup">
+                  <div className="cursor-pointer text-black hover:text-gray-500 pt-8">
                     Signup
-                </div>
-              </Link>
+                  </div>
+                </Link>
             </div>
           )}
         </div>

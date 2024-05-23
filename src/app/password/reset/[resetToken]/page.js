@@ -6,8 +6,8 @@ import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { reset } from "../../../../redux/actions/userAction";
+import {  useParams, useRouter } from "next/navigation";
+import { reset } from "../../../redux/actions/userAction";
 import { Box, CircularProgress, IconButton, InputAdornment, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
@@ -29,7 +29,7 @@ const Reset = () => {
 
   const dispatch = useDispatch();
   const router = useRouter();
-  const { resetToken } = router.query || {};
+  const { resetToken } = useParams() ;
   const { loading, isAuthenticated } = useSelector((state) => state.reset);
   const [showPassword, setShowPassword] = useState(false);
 
