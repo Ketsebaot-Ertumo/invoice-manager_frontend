@@ -262,8 +262,8 @@ const Edit = () => {
           </div>
 
 
-          <div className="text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:mr-20 py-5 sm:py-10">
-              <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
+          <div className="bg-gray-200 text-center sm:text-right text-black text-opacity-20 md:text-lg font-normal font-['Inter'] sm:pr-20 py-5 sm:py-10">
+             <p>© <span>{new Date().getFullYear()}</span> Lepton Games. All rights reserved.</p>
           </div>
         </>
     );
