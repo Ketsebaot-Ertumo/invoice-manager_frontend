@@ -220,7 +220,11 @@ const deleteInvoices = async (e, selectedInvoices) => {
         {
             field: 'item_number',
             headerName: 'Item Number',
-            width: 150
+            width: 150,
+            renderCell: (params) => {
+                const itemNumber = params.value.toString().padStart(4, '0');
+                return itemNumber;
+            }
         },
         {
             field: 'total',
