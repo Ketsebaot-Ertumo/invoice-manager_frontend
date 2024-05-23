@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Edit, Person3 } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
 import Link from 'next/link';
+import withAuth from "@/utils/withAuth";
 
 
 
@@ -88,4 +89,5 @@ const Profile = () =>{
         </>
     );
 }
-export default Profile
+
+export default withAuth(Profile); // Wrap your component with the HOC

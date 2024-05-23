@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams, useRouter } from "next/navigation";
+import withAuth from "@/utils/withAuth";
 
 
 const validationSchema = yup.object({
@@ -268,5 +269,6 @@ const Edit = () => {
     );
            
 }
-export default Edit
+
+export default withAuth(Edit); // Wrap your component with the HOC
 

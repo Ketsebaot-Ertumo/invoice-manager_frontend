@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams, useRouter } from "next/navigation";
+import withAuth from "@/utils/withAuth";
 
 
 
@@ -236,5 +237,6 @@ const EditUser = () => {
     );
            
 }
-export default EditUser
+
+export default withAuth(EditUser); // Wrap your component with the HOC
 

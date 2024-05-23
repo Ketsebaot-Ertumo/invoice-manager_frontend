@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import withAuth from "@/utils/withAuth";
 
 
 
@@ -241,5 +242,6 @@ const Create = () => {
        
     
 }
-export default Create
+
+export default withAuth(Create); // Wrap your component with the HOC
 

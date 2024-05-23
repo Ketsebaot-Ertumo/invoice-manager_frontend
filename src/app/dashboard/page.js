@@ -7,18 +7,19 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import moment from 'moment/moment';
 import Link from 'next/link';
-import { Edit, Delete, Print, FileDownload, MoreVert, Menu } from '@mui/icons-material';
+import { Edit, Delete, Print, FileDownload, Menu } from '@mui/icons-material';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import Loader from '@/components/Loader';
 import Sidebar from '@/components/Sidebar';
+import withAuth from '@/utils/withAuth';
 
 
 
 
-export default function Dashboard() {
+function Dashboard() {
     
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -351,4 +352,6 @@ const deleteInvoices = async (e, selectedInvoices) => {
         </>
     );
 }
+
+export default withAuth(Dashboard); // Wrap your component with the HOC
 
