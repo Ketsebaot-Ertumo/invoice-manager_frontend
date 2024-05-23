@@ -36,7 +36,7 @@ const EditUser = () => {
         phone: '',
     });
 
-    console.log('id', id)
+    // console.log('id', id)
 
     // Create a global Axios instance with the desired default configuration
     axios.defaults.withCredentials = true;

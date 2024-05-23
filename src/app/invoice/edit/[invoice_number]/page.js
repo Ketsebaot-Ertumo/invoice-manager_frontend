@@ -84,7 +84,7 @@ const Edit = () => {
                     client_phone: data.invoice.client_phone,
                     client_company: data.invoice.client_company,
                 });
-                console.log('data',data.invoice)
+                // console.log('data',data.invoice)
             } catch (error) {
                 console.log(error);
                 toast.error(error);

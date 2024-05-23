@@ -34,7 +34,7 @@ export default function Dashboard() {
 
     const handleRowSelectionChange = (newSelectionModel) => {
         setSelectedRows(newSelectionModel);
-        console.log('selection change', newSelectionModel);
+        // console.log('selection change', newSelectionModel);
     };
 
     const handleExportPDF = async () => {

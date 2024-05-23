@@ -9,7 +9,6 @@ const Menu = () => {
   const { userInfo } = useSelector(state => state.signIn);
   const dispatch = useDispatch();
   const router = useRouter();
-  console.log('userInfo',userInfo)
 
   //log out
   const logOut = () => {
