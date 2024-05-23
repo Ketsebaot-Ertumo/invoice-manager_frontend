@@ -89,4 +89,4 @@ const Profile = () =>{
     );
 }
 
-export default withAuth(Profile); // Wrap your component with the HOC
+export default withAuth(Profile); // Wrap component with the HOC

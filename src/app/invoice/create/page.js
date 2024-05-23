@@ -242,5 +242,5 @@ const Create = () => {
     
 }
 
-export default withAuth(Create); // Wrap your component with the HOC
+export default withAuth(Create); // Wrap component with the HOC
 

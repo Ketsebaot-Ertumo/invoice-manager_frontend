@@ -270,5 +270,5 @@ const Edit = () => {
            
 }
 
-export default withAuth(Edit); // Wrap your component with the HOC
+export default withAuth(Edit); // Wrap component with the HOC
 

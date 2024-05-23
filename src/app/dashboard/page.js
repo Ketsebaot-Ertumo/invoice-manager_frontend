@@ -353,13 +353,15 @@ const deleteInvoices = async (e, selectedInvoices) => {
                                 pageSizeOptions={[5,25,50,75,100]}
                                 />
                             )} 
+
                         </Box>
                     </Paper>
+                    
                 </div>
             </Box>
         </>
     );
 }
 
-export default withAuth(Dashboard); // Wrap your component with the HOC
+export default withAuth(Dashboard); // Wrap component with the HOC
 
