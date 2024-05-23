@@ -319,7 +319,7 @@ const deleteInvoices = async (e, selectedInvoices) => {
                         <Sidebar />
                     </div>
 
-                    <Paper sx={{bgcolor:'white'}}>
+                    <Paper className='bg-white ml-4'>
                         <Box sx={{height: 400, width: '100%'}}>
                             {loading? <Loader />:(
                             <DataGrid 

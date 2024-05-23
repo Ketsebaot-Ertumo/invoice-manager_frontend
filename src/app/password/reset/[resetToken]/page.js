@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { reset } from "../../../redux/actions/userAction";
+import { reset } from "../../../../redux/actions/userAction";
 import { Box, CircularProgress, IconButton, InputAdornment, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 

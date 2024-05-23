@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { Edit } from "@mui/icons-material";
+import { Edit, Person3 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import Link from 'next/link';
 
@@ -55,12 +55,9 @@ const Profile = () =>{
 
                   <div className='flex justify-center gap-80 pt-10'>
                       <div className='rounded-full pt-10 text-center'>
-                        <Image
-                            src=''
-                            className="rounded-full w-40 h-40 bg-blue-400"
-                            alt=""
-                        />
-                        <p className="pt-5 text-xl">{fullName}</p>
+                      
+                        <Person3 className="rounded-full w-40 h-40"/>
+                        <p className="pt-3 text-md">{fullName ? fullName : 'Full Name'}</p>
                         <div className="flex justify-center">
                           <Link href={`/profile/edit/${id}`}>
                               <IconButton aria-label="edit">
@@ -72,11 +69,11 @@ const Profile = () =>{
                     </div>
                     
                     <div>
-                        <div className='p-5 text-xl'>id: {id}</div>
-                        <div className='p-5 text-xl'>Full Name: {fullName}</div>
-                        <div className='p-5 text-xl'>Email: {email}</div>
-                        <div className='p-5 text-xl'>Phone: {phone}</div>
-                        <div className='p-5 text-xl'>Role: {role}</div>
+                        <div className='p-5 text-lg'>id: {id}</div>
+                        <div className='p-5 text-lg'>Full Name: {fullName}</div>
+                        <div className='p-5 text-lg'>Email: {email}</div>
+                        <div className='p-5 text-lg'>Phone: {phone}</div>
+                        <div className='p-5 text-lg'>Role: {role}</div>
                     </div>
                   </div>
 
