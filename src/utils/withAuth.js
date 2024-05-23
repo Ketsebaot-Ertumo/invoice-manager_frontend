@@ -1,10 +1,9 @@
-// components/withAuth.js
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const withAuth = (WrappedComponent) => {
-  return (props) => {
+  const ComponentWithAuth = (props) => {
     const router = useRouter();
     const { userInfo } = useSelector((state) => state.signIn);
 
@@ -16,6 +15,11 @@ const withAuth = (WrappedComponent) => {
 
     return userInfo && userInfo.token ? <WrappedComponent {...props} /> : null;
   };
+
+  // Set display name for the returned component
+  ComponentWithAuth.displayName = `withAuth(${WrappedComponent.displayName || WrappedComponent.name})`;
+
+  return ComponentWithAuth;
 };
 
 export default withAuth;
