@@ -49,7 +49,7 @@ const Profile = () =>{
     return(
         <>
 
-                <div className='bg-gray-200 md:pt-20 h-screen'>
+                <div className='bg-gray-200 sm:pt-5 lg:pt-20 h-screen'>
                     
                   <p className='hidden lg:flex justify-center text-2xl text-4xl font-medium text-center pt-5 font-[Arial]'>Profile Setting</p>
 
