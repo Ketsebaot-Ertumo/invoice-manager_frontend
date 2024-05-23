@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Edit, Person3 } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import Link from 'next/link';
 
 
@@ -49,14 +49,16 @@ const Profile = () =>{
     return(
         <>
 
-                <div className='bg-gray-200 pt-20 h-screen'>
+                <div className='bg-gray-200 md:pt-20 h-screen'>
                     
-                  <p className='text-2xl sm:text-4xl font-medium text-center pt-5 font-[Arial]'>Profile Setting</p>
+                  <p className='hidden lg:flex justify-center text-2xl text-4xl font-medium text-center pt-5 font-[Arial]'>Profile Setting</p>
 
-                  <div className='flex justify-center gap-80 pt-10'>
+                  <div className='lg:flex justify-center gap-80 pt-10'>
                       <div className='rounded-full pt-10 text-center'>
                       
-                        <Person3 className="rounded-full w-40 h-40"/>
+                        <Person3 className="hidden lg:flex rounded-full w-40 h-40"/>
+                        <div className="flex lg:hidden justify-center"><Avatar src="" alt=""/></div>
+
                         <p className="pt-3 text-md">{fullName ? fullName : 'Full Name'}</p>
                         <div className="flex justify-center">
                           <Link href={`/profile/edit/${id}`}>
@@ -68,7 +70,7 @@ const Profile = () =>{
 
                     </div>
                     
-                    <div>
+                    <div className="px-10 lg:px-0">
                         <div className='p-5 text-lg'>id: {id}</div>
                         <div className='p-5 text-lg'>Full Name: {fullName}</div>
                         <div className='p-5 text-lg'>Email: {email}</div>

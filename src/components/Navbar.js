@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <header className="flex items-center justify-between px-5 sm:px-10 fixed z-40 w-full h-[44px] md:h-[60px] bg-black">
       <Link href="/">
-        <div className="flex items-center gap-5 hover:text-gray-500">
+        <div className="flex items-center gap-5 hover:text-gray-500 pl-2">
           <Image
             src={Logo}
             className="rounded-full w-6 h-6 sm:w-10 sm:h-10"
@@ -42,7 +42,7 @@ function Navbar() {
       <MenuNav />
 
       <div className="lg:hidden">
-        <div className="pr-8" onClick={handleNavMenu}>
+        <div className="pr-3" onClick={handleNavMenu}>
           <Menu className="lg:mb-3 text-white" />
 
           {isMenuOpen && (
