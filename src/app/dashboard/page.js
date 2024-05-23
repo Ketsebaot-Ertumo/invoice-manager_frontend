@@ -290,7 +290,7 @@ const deleteInvoices = async (e, selectedInvoices) => {
                         </Button>
                     </Link>
                 </div>
-                <div className='flex justify-betweenc pl-4'>
+                <div className='flex gap-5 pl-4'>
                     <IconButton aria-label="more options" onClick={ handleMenuIconClick}>
                         <Menu />
                     </IconButton>
