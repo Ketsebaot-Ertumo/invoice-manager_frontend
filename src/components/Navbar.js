@@ -41,8 +41,7 @@ function Navbar() {
 
       <MenuNav />
 
-      <div className="lg:hidden">
-        <div className="pr-3" onClick={handleNavMenu}>
+      <div className="lg:hidden pr-3" onClick={handleNavMenu}>
           <Menu className="lg:mb-3 text-white" />
 
           {isMenuOpen && (
@@ -72,7 +71,6 @@ function Navbar() {
                 </Link>
             </div>
           )}
-        </div>
       </div>
 
     </header>

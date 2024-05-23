@@ -17,7 +17,7 @@ const Menu = () => {
   }
 
   return (
-    <div>
+
       <div className="mt-3 cursor-pointer text-white">
         <nav className="space-x-8 hidden lg:flex text-center text-base font-inter text-md">
   
@@ -34,17 +34,17 @@ const Menu = () => {
               </div>
             )}
 
-            <a href="https://www.linkedin.com/in/lik-architects?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
+            <a href="https://www.linkedin.com/in/lepton-games">
               <div className="cursor-pointer hover:text-gray-500">
                 <LinkedIn />
               </div>
             </a>
-            <a href="https://www.instagram.com/likawunt1?igsh=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr">
+            <a href="https://www.instagram.com/lepton-games">
               <div className="cursor-pointer hover:text-gray-500">
                 <Instagram />
               </div>{' '}
             </a>
-            <a href="mailto:Likawunt100@gmail.com">
+            <a href="mailto:admin@gmail.com">
               <div className="cursor-pointer hover:text-gray-500">
                 <Twitter />
               </div>
@@ -54,15 +54,16 @@ const Menu = () => {
                 <YouTube />
               </div>
             </a>
-            <a href="mailto:Likawunt100@gmail.com">
+            <a href="mailto:admin@gmail.com">
               <div className="cursor-pointer hover:text-gray-500">
                 <Email />
               </div>
             </a>
           </div>
         </nav>
+
       </div>
-    </div>
+
   );
 };
 
